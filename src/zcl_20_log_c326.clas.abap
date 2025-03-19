@@ -1,0 +1,21 @@
+CLASS zcl_20_log_c326 DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+
+    INTERFACES zif_04_log_c326 .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zcl_20_log_c326 IMPLEMENTATION.
+
+  METHOD zif_04_log_c326~define_company.
+    rv_company = 'Company USA...'.
+  ENDMETHOD.
+
+ENDCLASS.

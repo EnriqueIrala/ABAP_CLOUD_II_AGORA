@@ -1,0 +1,25 @@
+CLASS zcl_11_log_c326 DEFINITION INHERITING FROM zcl_10_log_c326
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+
+    METHODS:
+     create_instance.
+
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zcl_11_log_c326 IMPLEMENTATION.
+
+  METHOD create_instance.
+
+    DATA(lo_instance) = NEW zcl_10_log_c326( ).
+
+  ENDMETHOD.
+
+ENDCLASS.

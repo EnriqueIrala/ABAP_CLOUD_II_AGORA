@@ -1,0 +1,20 @@
+CLASS zcl_19_log_c326 DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    INTERFACES: zif_04_log_c326.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zcl_19_log_c326 IMPLEMENTATION.
+
+  METHOD zif_04_log_c326~define_company.
+    rv_company = 'Company Europe ...'.
+  ENDMETHOD.
+
+ENDCLASS.

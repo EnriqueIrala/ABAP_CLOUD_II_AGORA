@@ -154,34 +154,86 @@ CLASS zcl_exec_log_c326 IMPLEMENTATION.
 *    lo_keyboard->keyboard_type = 'ES'.
 *
 *    out->write( lo_laptop->keyboard->keyboard_type ).
-
+*
 * Events
-    DATA(lo_timer) = NEW zcl_26_log_c326( ).
-    DATA(lo_conexion) = NEW zcl_27_log_c326( ).
+*    DATA(lo_timer) = NEW zcl_26_log_c326( ).
+*    DATA(lo_conexion) = NEW zcl_27_log_c326( ).
+*
+*    SET HANDLER lo_conexion->on_time_out FOR lo_timer ACTIVATION abap_true.
+*
+*    DO.
+*
+*      WAIT UP TO 1 SECONDS.
+*
+*      lo_timer->increment_counter( 1 ).
+*
+*      IF lo_conexion->hour IS INITIAL.
+*        out->write( |Event not yet executed: { cl_abap_context_info=>get_system_time( ) }| ).
+*      ELSE.
+*        out->write( |Event was raised at: { lo_conexion->hour }-{ lo_conexion->sender_user } | ).
+*        SET HANDLER lo_conexion->on_time_out FOR lo_timer ACTIVATION abap_false.
+*      ENDIF.
+*
+*      IF sy-tabix = 10.
+*        EXIT.
+*      ENDIF.
+*
+*    ENDDO.
+*
+** Exception
+*    DATA: lx_auth TYPE REF TO zcx_29_auth_log_c326.
+*
+*    data: lv_result type i,
+*          lv_num1 type i value 20,
+*          lv_num2 type i.
+*
+*    DATA(lo_acess) = NEW zcl_30_manage_access_c326( ).
+*
+*    TRY.
+**        lo_acess->check_user( sy-uname ).
+*
+*        lv_result = lv_num1 / lv_num2.
+*
+*      CATCH zcx_29_auth_log_c326 INTO lx_auth.
+*        out->write( lx_auth->get_text( ) ).
+*
+*      CATCH cx_root into data(lx_root).
+*       out->write( lx_root->get_text( ) ).
+*
+*      lv_num2 = 5.
+*      RETRY.
+*
+*    ENDTRY.
+*
+*    out->write( lv_result ).
 
-    SET HANDLER lo_conexion->on_time_out FOR lo_timer ACTIVATION abap_true.
+* Singleton
 
-    DO.
+*  data: lo_singleton type ref to zcl_31_singleton_c326,
+*        lo_singleton2 type ref to zcl_31_singleton_c326.
+*
+*        lo_singleton = zcl_31_singleton_c326=>get_instance( ).
+*        lo_singleton2 = zcl_31_singleton_c326=>get_instance( ).
 
-      WAIT UP TO 1 SECONDS.
+* Model View Controller
+    DATA: lv_name TYPE string VALUE 'Juan López',
+          lv_role TYPE string VALUE 'Sr Developer'.
 
-      lo_timer->increment_counter( 1 ).
+    DATA(lo_model) = NEW zcl_32_model_c326(
+      iv_name = lv_name
+      iv_role = lv_role ).
 
-      IF lo_conexion->hour IS INITIAL.
-        out->write( |Event not yet executed: { cl_abap_context_info=>get_system_time( ) }| ).
-      ELSE.
-        out->write( |Event was raised at: { lo_conexion->hour }-{ lo_conexion->sender_user } | ).
-        SET HANDLER lo_conexion->on_time_out FOR lo_timer ACTIVATION abap_false.
-      ENDIF.
+    DATA(lo_view) = NEW zcl_33_view_c326( ).
 
-      IF sy-tabix = 10.
-        EXIT.
-      ENDIF.
+    DATA(lo_controller) = NEW zcl_34_controller_c326( ).
 
-    ENDDO.
+    lo_controller->set_model( lo_model ).
+    lo_controller->set_view( lo_view ).
 
-
-
+    lo_controller->get_view( )->display_employee(
+      iv_name = lo_model->get_name( )
+      iv_role = lo_model->get_role( )
+      io_out  = out ).
 
 
 

@@ -6,6 +6,9 @@ CLASS zcl_28_log_c326 DEFINITION
   PUBLIC SECTION.
   PROTECTED SECTION.
   PRIVATE SECTION.
+
+*   data: ms_first2_ type ty_first.
+
 ENDCLASS.
 
 

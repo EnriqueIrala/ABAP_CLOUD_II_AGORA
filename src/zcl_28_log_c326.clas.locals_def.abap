@@ -2,8 +2,18 @@
 *"* definitions, interfaces or type declarations) you need for
 *"* components in the private section
 
-types: begin of ty_first,
-       comp1 type string,
-       comp3 type string,
-       comp2 type string,
-       END OF TY_FIRST.
+*TYPES: BEGIN OF ty_first,
+*         comp1 TYPE string,
+*         comp3 TYPE string,
+*         comp2 TYPE string,
+*       END OF ty_first.
+*
+*CLASS lcl_helper DEFINITION.
+*
+*  PUBLIC SECTION.
+*
+*    DATA: ms_first TYPE ty_first.
+*
+*    METHODS: get_first RETURNING VALUE(rs_first) TYPE ty_first.
+*
+*ENDCLASS.

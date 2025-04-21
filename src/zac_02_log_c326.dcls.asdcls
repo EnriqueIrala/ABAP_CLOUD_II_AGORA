@@ -1,0 +1,11 @@
+@EndUserText.label: 'Multiple Grant'
+@MappingRole: true
+define role ZAC_02_LOG_C326 {
+    grant
+        select
+            on
+                zcds_20_log_c326
+                    where
+                       CountryCode = 'DE';
+                        
+}

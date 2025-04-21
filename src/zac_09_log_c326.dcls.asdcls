@@ -1,0 +1,11 @@
+@EndUserText.label: 'Mandatory'
+@MappingRole: true
+define role ZAC_09_LOG_C326 {
+    grant
+        select
+            on
+                zcds_27_log_c326
+                    where
+                        CurrencyCode = 'EUR';
+                        
+}

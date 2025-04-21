@@ -1,0 +1,9 @@
+@EndUserText.label: 'Full access'
+@MappingRole: true
+define role ZAC_05_LOG_C326 {
+    grant
+        select
+            on
+                zcds_24_log_c326; 
+                
+}

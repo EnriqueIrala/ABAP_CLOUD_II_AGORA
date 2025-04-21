@@ -1,0 +1,11 @@
+@EndUserText.label: 'Restricted access'
+@MappingRole: true
+define role ZAC_06_LOG_C326 {
+    grant
+        select
+            on
+                zcds_25_log_c326
+                    where
+                        false;
+                        
+}

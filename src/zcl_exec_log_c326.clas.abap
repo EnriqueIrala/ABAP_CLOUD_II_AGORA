@@ -16,6 +16,25 @@ ENDCLASS.
 CLASS zcl_exec_log_c326 IMPLEMENTATION.
 
   METHOD if_oo_adt_classrun~main.
+
+** Get Annotations
+*  cl_dd_ddl_annotation_service=>get_annos(
+*    EXPORTING
+*      entityname         = 'ZCDS_28_LOG_C326'
+**      variant            = ''
+**      language           = SY-LANGU
+**      extend             = abap_false
+*      metadata_extension = abap_true
+**      translation        = abap_true
+**      null_values        = abap_false
+*    IMPORTING
+**      entity_annos       =
+*      element_annos      = data(lt_element_annos)
+**      parameter_annos    =
+**      annos_tstmp        =
+*  ).
+
+
 *    out->write( 'Hello again Agora' ).
 
 **    data: lo_class type ref to zcl_02_log_c326.

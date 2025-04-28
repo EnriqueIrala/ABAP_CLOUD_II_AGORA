@@ -15,8 +15,8 @@ define view entity zcds_28_log_c326
 
   as select from /dmo/customer
 {
-  @UI.dataFieldDefault: [{ importance: #MEDIUM }]
-  @UI.lineItem: [{ position: 10 }]
+//  @UI.dataFieldDefault: [{ importance: #MEDIUM }]
+//  @UI.lineItem: [{ position: 10 }]
   key customer_id           as CustomerId,
       first_name            as FirstName,
       last_name             as LastName,
